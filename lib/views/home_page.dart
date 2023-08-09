@@ -5,58 +5,71 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Expanded(
               flex: 8,
               child: Center(
                 child: Text(
                   'Questions are shown here',
-                  style: TextStyle(color: Colors.white),
+                  // style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
             ),
             Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.green, // Background Color
-                ),
-                // style: const ButtonStyle(textStyle: TextStyle(color: Colors.red)),
-                // onPressed: () => print('Yes pressed'),
-                // onLongPress: () => print('Yes long pressed'),
-                onPressed: null,
-                child: const Center(
-                  child: Text(
-                    'Yes',
-                    style: TextStyle(color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shadowColor: const Color.fromRGBO(0, 255, 0, 1),
+                    elevation: 0,
+                    backgroundColor: const Color.fromARGB(255, 0, 255, 0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
                   ),
+                  child: const Text(
+                    'True',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    //The user picked true.
+                  },
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             Expanded(
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.red, // Background Color
-                ),
-                onPressed: null,
-                child: const Center(
-                  child: Text(
-                    'No',
-                    style: TextStyle(color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shadowColor: const Color.fromRGBO(255, 0, 0, 1),
+                    elevation: 0,
+                    backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
                   ),
+                  child: const Text(
+                    'False',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    //The user picked true.
+                  },
                 ),
               ),
             ),
-            const SizedBox(
-              height: 50,
-            )
           ],
         ),
       ),
