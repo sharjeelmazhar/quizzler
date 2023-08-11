@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Quizzler',
+      title: 'Quizzler', // testing
       theme: lightTheme,
       darkTheme: darkTheme,
       home: const HomePage(),
