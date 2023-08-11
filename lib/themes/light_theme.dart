@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-ThemeData lightThemeAndroid = ThemeData(
+ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: TextButton.styleFrom(
@@ -16,17 +15,16 @@ ThemeData lightThemeAndroid = ThemeData(
       ),
     ),
   ),
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     centerTitle: true,
     // systemOverlayStyle: SystemUiOverlayStyle.dark,
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.dark,
-      statusBarColor: Colors.transparent,
-    ),
+
+    systemOverlayStyle:
+        SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
+
     backgroundColor: Colors.transparent,
     elevation: 0,
-    titleTextStyle: TextStyle(
+    titleTextStyle: const TextStyle(
         color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
   ),
   textTheme: const TextTheme(
