@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-ThemeData darkTheme = ThemeData(
+ThemeData lightThemeiOS = ThemeData(
   useMaterial3: true,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: TextButton.styleFrom(
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      backgroundColor: Colors.black,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
@@ -17,23 +17,23 @@ ThemeData darkTheme = ThemeData(
   ),
   appBarTheme: const AppBarTheme(
     centerTitle: true,
-    // systemOverlayStyle: SystemUiOverlayStyle.light,
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarIconBrightness: Brightness.light,
-      statusBarBrightness: Brightness.dark,
-      statusBarColor: Colors.transparent,
-    ),
+    systemOverlayStyle: SystemUiOverlayStyle.dark,
+    // systemOverlayStyle: SystemUiOverlayStyle(
+    //   statusBarIconBrightness: Brightness.dark,
+    //   statusBarBrightness: Brightness.dark,
+    //   statusBarColor: Colors.transparent,
+    // ),
     backgroundColor: Colors.transparent,
     elevation: 0,
     titleTextStyle: TextStyle(
-        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),
+        color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
   ),
-  brightness: Brightness.dark,
   textTheme: const TextTheme(
-    bodyMedium: TextStyle(color: Colors.white),
+    bodyMedium: TextStyle(color: Colors.black, fontSize: 15),
   ),
-  colorScheme: ColorScheme.dark(
-    background: Colors.black,
+  brightness: Brightness.light,
+  colorScheme: ColorScheme.light(
+    background: Colors.white,
     primary: Colors.grey.shade900,
     secondary: Colors.grey.shade300,
   ),
