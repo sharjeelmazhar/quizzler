@@ -8,35 +8,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
   final List<Widget> scoreKeeper = [
-      const Icon(
-        Icons.check,
-        color: Colors.green,
-      ),
-      const Icon(
-        Icons.close,
-        color: Colors.red,
-      ),
-      const Icon(
-        Icons.check,
-        color: Colors.green,
-      ),
-      const Icon(
-        Icons.close,
-        color: Colors.red,
-      ),
-      const Icon(
-        Icons.check,
-        color: Colors.green,
-      ),
-    ];
-   LinearGradient gradient = const LinearGradient(
-      colors: [Colors.green, Colors.red],
-    );
+    // const Icon(
+    //   Icons.check,
+    //   color: Colors.green,
+    // ),
+    // const Icon(
+    //   Icons.close,
+    //   color: Colors.red,
+    // ),
+  ];
+  LinearGradient gradient = const LinearGradient(
+    colors: [Colors.green, Colors.red],
+  );
   @override
-  
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: ShaderMask(
@@ -82,12 +69,21 @@ class _HomePageState extends State<HomePage> {
                       'True',
                     ),
                     onPressed: () {
-                      setState(() {
-                        scoreKeeper.add(const Icon(
-                          Icons.check,
-                          color: Colors.green,
-                        ));
-                      });
+                      setState(
+                        () {
+                          scoreKeeper.add(
+                            const Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                          );
+                        },
+                      );
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(microseconds: 1000),
+                        curve: Curves.easeOut,
+                      );
                       //The user picked true.
                     },
                   ),
@@ -108,12 +104,22 @@ class _HomePageState extends State<HomePage> {
                       'False',
                     ),
                     onPressed: () {
-                      setState(() {
-                        scoreKeeper.add(const Icon(
-                          Icons.close,
-                          color: Colors.red,
-                        ));
-                      });
+                      setState(
+                        () {
+                          scoreKeeper.add(
+                            const Icon(
+                              Icons.close,
+                              color: Colors.red,
+                            ),
+                          );
+                        },
+                      );
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(microseconds: 1000),
+                        curve: Curves.easeOut,
+                      );
+
                       //The user picked true.
                     },
                   ),
@@ -123,12 +129,33 @@ class _HomePageState extends State<HomePage> {
                 height: 100,
               ),
               Expanded(
-                child: ListView(
+                // child: ListView(
+                //   controller: _scrollController,
+                //   scrollDirection: Axis.horizontal,
+                //   children: [
+                //     Row(
+                //       children: scoreKeeper,
+                //     ),
+                //   ],
+                // ),
+                child: ListView.builder(
+                  controller: _scrollController,
                   scrollDirection: Axis.horizontal,
-                  children: [ Row(
-                    children: scoreKeeper,
-                  ),],
+                  itemCount: 1, // Only one child, which is the Row
+                  itemBuilder: (BuildContext context, int index) {
+                    return Row(
+                      children: scoreKeeper,
+                    );
+                  },
                 ),
+
+                // child: SingleChildScrollView(
+                //   controller: _scrollController,
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     children: scoreKeeper,
+                //   ),
+                // ),
               ),
             ],
           ),
